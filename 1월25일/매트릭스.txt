@@ -1,0 +1,49 @@
+파일-작업디렉토리변경 / setwd로 작업디레토리 설정
+dir()
+
+df = read.csv("부산광역시_현대미술관 관람객 수_12_31_2020.csv")
+#=dir()[4]
+#csv자료의 가장 윗자료를 필드명으로 가져옴
+
+str(df)
+head(df)
+names(df)
+summary(df)
+table(df)
+barplot(table(df$연도))
+#연도만 출력
+df[,1] #df$연도
+
+#연도와 관람객 수만 출력
+df[,c(1,3)]
+df$연도
+
+#위로 12개의 자료만 출력 (2018)
+df[1:12,]
+
+#아래로 12개의 자료만 출력 (2020)
+df[25:36,]
+
+#2018년도 월과 관람객수만 출력
+df[1:12,c(1,3)]
+ 
+#R에서 NA(결측치)값을 0으로 설정하기
+is.na(df[3])
+barplot(table(is.na(df[3])))
+
+#barplot 멀티로 띄우기
+par(mfrow=c(1,3))
+barplot(table(is.na(df[1])),main=names(df)[1])
+barplot(table(is.na(df[2])),main=names(df)[2])
+barplot(table(is.na(df[3])),main=names(df)[3])
+
+#정리
+1. SCV자료를 읽기 위해 작업경로 세팅
+2. df=read.csv 명령어로 자료 읽기
+3. 데이터셋 샘플 확인
+4. 데이터의 구조 확인 (필드명, 성격 등)
+5. 기술통계를 통하여 데이터셋의 분포 확인
+ -summary(df), summary(df[,c(1,3)]) 등
+6. nA값을 반드시 확인 (summary확인, is.na(df), table(is.na(df)), barplot(table())
+7. 시각화 가능
+8. NA값 처리 (0으로 대체, 중앙값이나 평균값으로 대체, 0있는 행 모두 제거, 임의값 대체

@@ -1,0 +1,120 @@
+#2개 이상의 자료 입력시 열이름 = c('a','b')
+
+직업명=c('데이터과학자', '엔지니어', '엔지니어', '세금관리자', '분석관리자')
+채용수=c(4184,2725,2599,3317,1958)
+평균급여=c(110,110,106,110,112)
+직업만족도=c(4.4, 4.0, 4.3, 4.0, 4.1)
+직업명
+
+#R에서 리스트 초기화(2개이상) 직업명=c()
+
+str(직업명)
+
+summary(평균급여)
+
+직업명(평균급여)
+
+직업명fa=as.factor(직업명)
+#직업명 형변
+summary(직업명fa)
+plot(직업명fa)
+pie(직업명fa$)
+
+
+data=data.frame(직업명,채용수,평균급여,직업만족도)
+data
+summary(data)
+plot(data)
+data$직업명 
+a = 'python/r/r/cobol/r'
+temp = strsplit(a,"/")
+temp
+temp[0]
+temp[0][0]
+temp[1][1][0]
+plot(a) #에러
+
+a=c('python/r/cobol/r','aa/b/b/c')
+temp = strsplit(a,"/")
+temp
+summary(temp)
+
+#factor형은 strsplit안됨
+b.as=factor(a)
+strsplit(b,"/") #에러
+plot(b)
+
+unlist(temp)
+
+a=c('파이선,데이터분석가,인공지능','R,데이터분석가,빅데이터')
+tmp=strsplit(a,",")
+tmp
+summary(tmp)
+tmp1=unlist(tmp)
+tmp1
+tmp2=as.factor(tmp1)
+tmp2
+summary(tmp2)
+
+strsplit(tmp2,'-') 
+#factor는 strsplit안됨
+strsplit(as.character(tmp1),'-') 
+
+bt <- c('A', 'B', 'B', '0', 'AB', 'A')
+bt.new <- factor(bt)
+bt
+bt.new
+bt[5]
+bt.new[5]
+levels(bt.new)
+as.integer(bt.new)
+bt.new[7] <- 'B'
+bt.new[8] <- 'C'
+bt.new
+
+#---------------------------------------
+예제
+
+cafe <- list(espresso = c(4, 5, 3, 6,5, 4, 7),
+		  americano = c(63, 68, 64 ,68, 72, 89, 94),
+			 latte = c(61, 70, 59, 71, 81, 92, 88),
+			 price = c(2.0, 2.5, 3.0),
+			  menu = c('espresso', 'americano', 'latte'))
+
+cafe
+
+str(cafe)
+summary(cafe)
+cafe$menu <- factor(cafe$menu)
+
+names(cafe$price) = cafe$menu
+names(cafe$price)
+cafe
+
+#-------------------------------------------
+예제
+
+#R에는 내장데이터를 많이 제공
+#자동차 연비 관련 내장데이터 mtcars
+mtcars                        #read없는 자료
+str(mtcars)
+head(mtcars,3)
+summary(mtcars)
+plot(mtcars$mpg)
+summary(factor(mtcars$cyl))
+unique(mtcars$cyl)
+#=levels(factor(mtcars$cyl)
+#=names(summary(factpr(mtcars$cyl)))
+
+tmp = summary(factor(mtcars$cyl))
+tmp
+names(tmp) = c('cyl:4', 'cyl:6', 'cyl:8')
+str(tmp)
+tmp[1]
+
+## split(자료,기준)작업하면 리스트화됨
+tmp = split(mtcars, mtcars$cyl)
+str(tmp)
+split(tmp[[1]],tmp[[1]]$am)
+plot(cafe$price)
+tmp
